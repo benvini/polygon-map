@@ -1,0 +1,9 @@
+{
+  "homeScreen": {
+    "coordinatesForm": "טופס קואורדינטות",
+    "submitCoords": "שלח קואורדינטות",
+    "latitude": "קו רוחב",
+    "longitude": "קו אורך",
+    "unableFetchData": "לא ניתן לטעון את המידע"
+  }
+}

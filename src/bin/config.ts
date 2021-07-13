@@ -1,0 +1,1 @@
+export const FETCH_LOCATION_URL="http://dev.virtualearth.net/REST/v1/Locations";

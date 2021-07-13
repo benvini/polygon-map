@@ -1,0 +1,9 @@
+{
+  "homeScreen": {
+    "coordinatesForm": "Coordinates Form",
+    "submitCoords": "Submit Coords",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "unableFetchData": "Unable fetch data"
+  }
+}
