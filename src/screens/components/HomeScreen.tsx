@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from "react";
 import styled from "styled-components";
 
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { Screen } from "../../shared/components";
 import MainButton from "../../shared/components/MainButton";
-import {Point} from "../../shared/types/types";
-import Map from './Map';
+import { Point } from "../../shared/types/types";
+import Map from "./Map";
 
 const InputContainer = styled.div`
   display: flex;
@@ -41,15 +41,15 @@ const MapContainer = styled.div`
 `;
 
 const HomeScreen = () => {
-  const {t} = useTranslation('homeScreen');
-  const [latInput, setLatInput] = useState('');
-  const [lngInput, setLngInput] = useState('');
+  const { t } = useTranslation("homeScreen");
+  const [latInput, setLatInput] = useState("");
+  const [lngInput, setLngInput] = useState("");
   const [bingMap, setBingMap] = useState<Point>();
 
   const onLatChange = useCallback((inputText: string) => {
     setLatInput(inputText);
   }, []);
-  
+
   const onLngChange = useCallback((inputText: string) => {
     setLngInput(inputText);
   }, []);
@@ -57,7 +57,7 @@ const HomeScreen = () => {
   const onSubmit = useCallback(() => {
     setBingMap({
       lat: Number(latInput),
-      lng: Number(lngInput)
+      lng: Number(lngInput),
     });
   }, [latInput, lngInput]);
 
@@ -65,16 +65,36 @@ const HomeScreen = () => {
     <Screen>
       <ContentContainer>
         <FormContainer>
-           <Title>{t('coordinatesForm')}</Title>
-           <InputContainer>
-            <Input type="number" placeholder={t('latitude')} value={latInput} onChange={(e) => onLatChange(e.target.value)} />
-            <Input type="number" placeholder={t('longitude')} value={lngInput} onChange={(e) => onLngChange(e.target.value)} />
-           </InputContainer>
-           <MainButton disabled={!latInput || !lngInput} onClick={onSubmit} title={t('submitCoords')}/>
+          <Title>{t("coordinatesForm")}</Title>
+          <InputContainer>
+            <Input
+              type="number"
+              placeholder={t("latitude")}
+              value={latInput}
+              onChange={(e) => onLatChange(e.target.value)}
+            />
+            <Input
+              type="number"
+              placeholder={t("longitude")}
+              value={lngInput}
+              onChange={(e) => onLngChange(e.target.value)}
+            />
+          </InputContainer>
+          <MainButton
+            disabled={!latInput || !lngInput}
+            onClick={onSubmit}
+            title={t("submitCoords")}
+          />
         </FormContainer>
-        {
-          bingMap ? <MapContainer><Map lat={bingMap.lat} lng={bingMap.lng} /></MapContainer> : <MapContainer><Map/></MapContainer>
-        }
+        {bingMap ? (
+          <MapContainer>
+            <Map lat={bingMap.lat} lng={bingMap.lng} />
+          </MapContainer>
+        ) : (
+          <MapContainer>
+            <Map />
+          </MapContainer>
+        )}
       </ContentContainer>
     </Screen>
   );

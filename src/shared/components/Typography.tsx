@@ -10,9 +10,7 @@ const StyledText = styled.label`
 `;
 
 const Typography = ({ children }: Props) => {
-  return (
-    <StyledText>{children}</StyledText>
-  );
+  return <StyledText>{children}</StyledText>;
 };
 
 export default Typography;

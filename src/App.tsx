@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 
 import en from "./shared/locales/en.json";
 import he from "./shared/locales/he.json";
-import HomeScreen from './screens/components/HomeScreen';
+import HomeScreen from "./screens/components/HomeScreen";
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -27,6 +27,6 @@ const App = () => {
       </Route>
     </>
   );
-}
+};
 
 export default App;

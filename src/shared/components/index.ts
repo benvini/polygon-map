@@ -1,2 +1,2 @@
-export {Screen} from './Screen';
-export {default as Typography} from './Typography';
+export { Screen } from "./Screen";
+export { default as Typography } from "./Typography";
