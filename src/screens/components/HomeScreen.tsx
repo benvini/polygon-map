@@ -44,6 +44,7 @@ const HomeScreen = () => {
   const { t } = useTranslation("homeScreen");
   const [latInput, setLatInput] = useState("");
   const [lngInput, setLngInput] = useState("");
+  const [sequence, setSequence] = useState<Point[]>([]);
   const [bingMap, setBingMap] = useState<Point>();
 
   const onLatChange = useCallback((inputText: string) => {
@@ -59,6 +60,13 @@ const HomeScreen = () => {
       lat: Number(latInput),
       lng: Number(lngInput),
     });
+    setSequence((prevBingMap) => [
+      ...prevBingMap,
+      {
+        lat: Number(latInput),
+        lng: Number(lngInput),
+      },
+    ]);
   }, [latInput, lngInput]);
 
   return (
@@ -88,7 +96,11 @@ const HomeScreen = () => {
         </FormContainer>
         {bingMap ? (
           <MapContainer>
-            <Map lat={bingMap.lat} lng={bingMap.lng} />
+            <Map
+              lat={bingMap.lat}
+              lng={bingMap.lng}
+              regularPolygons={sequence}
+            />
           </MapContainer>
         ) : (
           <MapContainer>
